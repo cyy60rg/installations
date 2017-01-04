@@ -1,0 +1,33 @@
+# Download a '.tar.gz' oracle java from the oracle's site
+# Extract it
+# Move the extracted folder to '/usr/lib/jvm'. 
+# This is not required but it's the place where java runtime is installed and IDE's look in this folder.
+
+sudo mv /path_to_jdk/jdk1.x.x /usr/lib/jvm/
+
+# Before adding this jdk as an alternatives, you can see that the new alternatives is not listed.
+
+sudo update-alternatives --query java
+sudo update-alternatives --query javac 
+
+# Next, add the new jdk alternatives (U can give any number).
+
+sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/oracle_jdk8/jre/bin/java 2000
+sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/oracle_jdk8/bin/javac 2000
+
+# Now you should see the new jdk listed and you can switch between the alternatives with this command:
+
+sudo update-alternatives --config java
+sudo update-alternatives --config javac
+
+Create a file /etc/profile.d/oraclejdk.sh with the following content (adapt the paths to reflect the path where you stored your JDK):
+
+export J2SDKDIR=/usr/lib/jvm/jdk1.x.x
+export J2REDIR=/usr/lib/jvm/jdk1.x.x/jre
+export PATH=$PATH:/usr/lib/jvm/jdk1.x.x/bin:/usr/lib/jvm/jdk1.x.x/db/bin:/usr/lib/jvm/jdk1.x.x/jre/bin
+export JAVA_HOME=/usr/lib/jvm/jdk1.x.x
+export DERBY_HOME=/usr/lib/jvm/jdk1.x.x/db
+
+# Save the file and then run the script using:
+
+source /etc/profile.d/oraclejdk.sh
