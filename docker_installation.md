@@ -23,3 +23,12 @@ Installing the Docker packages
 ```
 $  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
+
+Verify the installation by downloading and running and `Hello World` program.
+
+```
+$ sudo docker run hello-world
+```
+The command downloads tries to run a test image called `hello-world` and runs it in a container. So, first the command checks whether there is an image with same name in the local image repo. If not, it downloads the image from Docker Hub. If the command is successfull, you can see a message with `Hello from Docker! ...`
+
+
