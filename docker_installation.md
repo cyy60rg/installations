@@ -31,4 +31,12 @@ $ sudo docker run hello-world
 ```
 The command downloads tries to run a test image called `hello-world` and runs it in a container. So, first the command checks whether there is an image with same name in the local image repo. If not, it downloads the image from Docker Hub. If the command is successfull, you can see a message with `Hello from Docker! ...`
 
+### Post installation steps [[ref.](https://docs.docker.com/engine/install/linux-postinstall/)]
 
+This is mainly for Linux and DIY installation.
+
+#### Manage Docker as a non-root user
+
+> [! WARNING]
+> This is a critical warning that requires immediate attention.
+> Failure to follow these instructions could result in data loss.
