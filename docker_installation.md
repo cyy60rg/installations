@@ -38,5 +38,19 @@ This is mainly for Linux and DIY installation.
 #### Manage Docker as a non-root user
 
 > [! WARNING]
-> This is a critical warning that requires immediate attention.
-> Failure to follow these instructions could result in data loss.
+> Users who runs need `root` privilege which could be an isssue if it is in a shared server.
+
+To create a `docker` group and add your user:
+1. Create the `docker` group
+```
+$ sudo groupadd docker
+```
+
+2. Add your user to the `docker` group:
+```
+$ sudo usermod -aG docker $USER
+```
+3. Verify the setup by running the `hello-world` without `sudo`
+```
+$ docker run hello-world
+```
